@@ -47,23 +47,23 @@ Here is a visual breakdown of your new terminal interface:
 
 ## Installation (Windows)
 
-1. Clone this repository to `D:\myterminal`.
-2. To link WezTerm to this repository, create a proxy configuration file at `C:\Users\YOUR_USERNAME\.wezterm.lua` with the following content:
+This repository comes with a fully automated, one-command setup script.
 
-```lua
-local wezterm = require 'wezterm'
-package.path = package.path .. ";D:/myterminal/.wezterm/?.lua"
+1. Clone this repository anywhere on your PC (e.g. `D:\myterminal`).
+2. Open Windows PowerShell, navigate to the folder, and run the installer:
 
--- Clear the Lua cache for our custom modules so hot-reloading fetches new changes
-for k, v in pairs(package.loaded) do
-    if k:match("^config%.") or k:match("^utils%.") then
-        package.loaded[k] = nil
-    end
-end
-
-wezterm.add_to_config_reload_watch_list("D:/myterminal/.wezterm/wezterm.lua")
-return dofile("D:/myterminal/.wezterm/wezterm.lua")
+```powershell
+cd D:\myterminal
+.\install.ps1
 ```
+
+**That's it.** The script will automatically:
+- Link WezTerm to this configuration directory.
+- Download and install the JetBrainsMono Nerd Fonts.
+- Boot into WSL and install all CLI utilities, editors (LazyVim), and multiplexers (Zellij).
+- Deploy all your custom dotfiles into WSL.
+
+*Note: You must completely close and reopen WezTerm for the font changes to take effect.*
 
 ## Installation (Mac / Linux)
 
@@ -89,6 +89,7 @@ return dofile("D:/myterminal/.wezterm/wezterm.lua")
 - **Zoom Pane**: `Leader + z`
 - **Copy**: `Ctrl + Shift + C` (or just highlight text)
 - **Paste**: `Ctrl + Shift + V` (or Right-Click)
+- **Quit Application**: `Leader + q`
 - **View All Shortcuts**: `Leader + ?`
 
 ---

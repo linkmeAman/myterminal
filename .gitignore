@@ -1,0 +1,36 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temporary and Cache
+.cache/
+tmp/
+temp/
+
+# Ignore the fonts folder completely so we don't commit 120MB zip files
+fonts/
+
+# Do not track any personal api keys if accidentally added
+config.yaml
+.env

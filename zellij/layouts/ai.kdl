@@ -1,0 +1,35 @@
+layout {
+    pane_template name="header" {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+    }
+
+    default_tab_template {
+        header
+        children
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+
+    // AI Layout: Editor | Python REPL | Logs
+    tab name="ai" focus=true {
+        pane split_direction="vertical" {
+            pane name="editor" size="60%" {
+                command "bash"
+                args "-c" "echo '🤖 Ready — run: nvim  |  code .'; bash"
+            }
+            pane split_direction="horizontal" {
+                pane name="python-repl" {
+                    command "bash"
+                    args "-c" "echo '🐍 Ready — run: python  |  ipython  |  jupyter'; bash"
+                }
+                pane name="logs" {
+                    command "bash"
+                    args "-c" "echo '📄 Ready — run: tail -f app.log'; bash"
+                }
+            }
+        }
+    }
+}
